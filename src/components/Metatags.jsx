@@ -31,10 +31,10 @@ function Metatags({type , data, viewUrl}){
                 {type !== "view" && type !== "content" && siteInfo && (
                     <title>{`${siteInfo.name} | ${siteInfo.slogan}`}</title>
                 )}
-                {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
-                {ogImageUrl && <meta property="og:image:url" content={ogImageUrl} />}
-                {/*{ogImageUrl && <meta property="og:image:width" content="600" />}*/}
-                {/*{ogImageUrl && <meta property="og:image:height" content="400" />}*/}
+                {ogImageUrl && <meta property="og:image" content={`${window.location.origin}${ogImageUrl}`} />}
+                {ogImageUrl && <meta property="og:image:url" content={`${window.location.origin}${ogImageUrl}`} />}
+                {ogImageUrl && <meta property="og:image:width" content="600" />}
+                {ogImageUrl && <meta property="og:image:height" content="400" />}
 
                 {description && type === "content" && <meta name="description" content={description} />}
 
