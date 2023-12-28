@@ -1,0 +1,15 @@
+@mixin cuttext{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+@mixin fontz($fs, $lh, $ls, $tt, $fw,$cl) {
+  font-size: $fs;
+  line-height: $lh;
+  letter-spacing: $ls;
+  text-transform: $tt;
+  font-weight:$fw;
+  color:$cl;
+}

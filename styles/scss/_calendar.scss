@@ -1,0 +1,25 @@
+@import "variables";
+.button-clear{
+  border: 1px solid $darkRed;
+  background: $darkRed;
+  border-radius: 6px;
+  width: 63px;
+  height: 33.195px;
+  color: white;
+  transition: 0.2s;
+  &:hover{
+    transition: 0.2s;
+    background: transparent;
+    color: black;
+  }
+  span{
+    font-size: 12px;
+  }
+}
+.calendar{
+  position: absolute;
+  top: 38px;
+}
+.show-calendar{
+  padding-left: 8px;
+}

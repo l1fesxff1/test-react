@@ -1,0 +1,102 @@
+.last-news-block{
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 20px 0;
+  .last-news-block__block-title a{
+    font-size: 20px;
+    line-height: 23px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .last-news-block__container{
+    padding: 15px 10px 0;
+    .last-news-block__item{
+      max-width: 275px;
+      height: 400px;
+      display: flex !important;
+      flex-direction: column;
+      row-gap: 15px;
+      .last-news-block__title{
+        font-weight: 700;
+        color: #000;
+        word-break: break-word;
+        font-size: 14px;
+        line-height: 16px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        text-overflow: ellipsis;
+      }
+      .last-news-block__summary{
+        font-weight: 400;
+        word-break: break-word;
+        font-size: 14px;
+        line-height: 16px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5;
+        text-overflow: ellipsis;
+      }
+      .last-news-block__link-block{
+        margin-top: auto;
+        border: 1px solid $darkGray;
+        display: flex;
+        flex-direction: row;
+        width: 134px;
+        transition: .3s ease;
+        .last-news-block__link{
+          display: block;
+          font-size: 12px;
+          line-height: 14px;
+          color: $darkRed;
+          text-transform: uppercase;
+          padding: 12px 12px 12px 12px;
+          border-left: 1px solid $darkGray;
+        }
+        img{
+          height: 8px;
+          width: 12px;
+          margin: auto;
+        }
+        &:hover{
+          background-color: #fdbe34;
+          transition: .3s ease;
+        }
+      }
+    }
+    .slick-dots{
+      bottom: -25px;
+      li button{
+        border: 1px solid $dark;
+      }
+    }
+     .slick-dots li.slick-active button{
+      background-color: $dark;
+    }
+  }
+  .slick-track{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media (max-width: $xl) {
+  .last-news-block{
+    .last-news-block__container{
+      display: block;
+      .slick-track{
+        display: inline-flex;
+        justify-content: normal;
+      }
+      .slick-slide{
+        width: 328px;
+        padding: 0 20px;
+        .last-news-block__item{
+          margin: 0 auto;
+        }
+      }
+    }
+    padding: 30px 0;
+  }
+}

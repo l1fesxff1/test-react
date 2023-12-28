@@ -1,0 +1,118 @@
+@import "variables";
+@import "mixins";
+
+.education-catalog-page{
+  padding:50px 0;
+  &__title{
+    @include fontz(25px, 35px, 0.02rem, none, 800, $black);
+    border-bottom:2px solid $black;
+    padding-bottom: 10px;
+  }
+}
+.education-catalog-filter{
+  form{
+    background: $borderGray;
+    margin:20px 0;
+    padding: 0 10px 15px;
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    label{
+      display: inline-flex;
+      flex-direction:column;
+      margin:10px 10px 0 0;
+      select, input{
+        background: white;
+        height:30px;
+      }
+    }
+    button{
+      background: white;
+      padding:0 15px;
+      margin-top:10px;
+      height:30px;
+      @include fontz(16px, 25px, 0.02rem, capitalize, 400, $black);
+    }
+  }
+}
+.education-catalog-table{
+  width: 100%;
+  border-collapse: collapse;
+  &__head{
+    th{
+      background: $darkRed;
+      font-size:16px;
+    }
+  }
+  &__body{
+    tr{
+      box-shadow: 0 4px 8px rgba(59, 59, 59, 0.1);
+      border:none;
+      margin-bottom: 30px;
+    }
+    td{
+      overflow-wrap: anywhere;
+      @include fontz(15px, 20px, 0.02rem, none, 400, $black);
+      a{
+        @include fontz(15px, 20px, 0.02rem, none, 400, $darkRed);
+        &:hover{
+          text-decoration:underline;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width:$md) {
+  .education-catalog-table{
+    &__head {
+      th {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+      }
+    }
+
+    &__body {
+      tr {
+        margin-bottom: 15px;
+
+        td {
+          display: block;
+          text-align: center;
+          box-sizing: border-box;
+          border-bottom:1px solid $lightGray;
+
+          &:before {
+            content: attr(data-label);
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media(max-width:$sm) {
+  .education-catalog-filter{
+    form{
+      flex-direction: column;
+      align-items: flex-start;
+      label{
+        select, input{
+          width: 80%;
+        }
+      }
+      button{
+        background: white;
+        padding:0 15px;
+        height:30px;
+        @include fontz(16px, 25px, 0.02rem, capitalize, 400, $black);
+      }
+    }
+  }
+}

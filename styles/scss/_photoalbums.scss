@@ -1,0 +1,208 @@
+@import "mixins";
+@import "variables";
+
+.albums{
+  padding:50px 0;
+  &-view {
+    gap: 20px;
+  }
+}
+
+.albums-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1em 0;
+  padding: 10px;
+  position: relative;
+  max-width: 560px;
+  width:100%;
+  border-top: 3px solid $darkRed;
+  border-right: 3px solid $darkRed;
+  border-bottom: 3px solid transparent;
+  border-left: 3px solid transparent;
+  &:before {
+    content: '\003E';
+    color:black;
+  }
+  &:hover {
+    transition: .2s ease;
+    border-top: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid $darkRed;
+    border-left: 3px solid $darkRed;
+  }
+
+  &__img {
+    max-width: 150px;
+  }
+
+  &__title {
+    @include fontz(15px, 25px, 0.02rem, uppercase, 300, $darkRed);
+    text-decoration: none;
+    max-width: 370px;
+  }
+}
+
+//Full page photoalbums.
+.album-title {
+  text-align: center;
+  @include fontz(2em, 65px, 0.02rem, capitalize, 800, $black);
+}
+
+.MuiPagination-ul {
+  justify-content: center;
+}
+
+.album-gallery {
+  gap: 16px;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+//Slider stylization.
+.albums-slider {
+  border: 1px solid $borderGray;
+
+  &__image {
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 350px;
+    }
+  }
+
+  &__title {
+    margin: 15px 0 30px;
+    text-align: center;
+    @include fontz(15px, 18px, 0.02rem, uppercase, 400, $darkRed);
+  }
+
+  &:hover {
+    .slick-next, .slick-prev {
+      background: white;
+      width: 25px;
+      height: 25px;
+      z-index: 2;
+      border: 1px solid $darkRed;
+      line-height: 0.4;
+
+      &:focus {
+        background: $darkRed;
+        border: 1px solid white;
+
+        &:before {
+          color: white;
+        }
+      }
+
+      &:before {
+        color: black;
+      }
+    }
+
+    .slick-next {
+      right: -10px;
+
+      &:before {
+        content: '\003E';
+      }
+    }
+
+    .slick-prev {
+      left: -10px;
+
+      &:before {
+        content: '\003C';
+      }
+    }
+  }
+
+}
+
+
+//Lightbox stylization.
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 999;
+
+  img {
+    width: 100vw;
+    max-width: 95%;
+    object-fit:cover;
+  }
+
+  &-content {
+    position: relative;
+    width: 80%;
+    height:80%;
+    max-width: 800px;
+    background-color: white;
+    padding: 35px 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+    .button-prev,
+    .button-next {
+      font-size: 35px;
+    }
+
+    .button-close {
+      position: absolute;
+      top: 0;
+      right: 3px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: black;
+    }
+  }
+}
+
+//Adaptive.
+@media (max-width: $lg) {
+  .album-title {
+    @include fontz(1.5em, 30px, 0.02rem, capitalize, 800, $black);
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: $sm) {
+  .albums-card {
+    padding:10px 10px 10px 0;
+    &__title {
+      max-width:150px;
+      padding: 0 5px;
+    }
+    &__img {
+      img {
+        width: 100vw;
+      }
+    }
+  }
+  .lightbox {
+    padding: 20px 10px;
+    &-content {
+      height:35%;
+      img{
+        max-width:90%;
+      }
+    }
+
+    .button-close {
+      font-size: 14px;
+    }
+  }
+}

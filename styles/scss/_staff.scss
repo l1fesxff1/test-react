@@ -1,0 +1,63 @@
+.staff-view{
+  padding:50px 0;
+    .staff-item{
+      img{
+        max-width:125px;
+        max-height:165px;
+      }
+      &__title{
+        @include fontz(18px,35px,0.02em,capitalize,500,black);
+      }
+      &__position{
+        @include fontz(15px,24px,0.02em,capitalize,400,black);
+      }
+    }
+}
+
+//Single page staff.
+.staff{
+  padding:50px 0;
+  img{
+    max-width:125px;
+    max-height:165px;
+    width:100%;
+  }
+  &-title{
+    @include fontz(18px,30px,0.02em,capitalize,500,black);
+  }
+  &-info{
+    padding-right:20px;
+    &__general{
+      &-position, &-phone,
+      &-mail, &-location{
+        @include fontz(15px,30px,0.02em,capitalize,400,black);
+      }
+      &-phone{
+        a{
+          margin-right:10px;
+        }
+      }
+    }
+    &__sources{
+      &-link{
+        display: flex;
+        flex-direction:row;
+        img{
+          width:20px;
+          height:20px;
+        }
+        a{
+          padding-left:20px;
+        }
+      }
+    }
+  }
+  &-wikipedia{
+    padding-top:20px;
+    &__block{
+      &-link{
+        @include fontz(15px,30px,0.02em,capitalize,800,$darkRed);
+      }
+    }
+  }
+}

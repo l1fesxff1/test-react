@@ -1,0 +1,21 @@
+@import "variables";
+.feed-data-title{
+  border-top: 1px solid $darkGray;
+  padding: 10px 0;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  border-bottom: 1px solid $darkGray;
+}
+.feed-data-container{
+  padding: 20px 0;
+  border-bottom: 1px solid $darkGray;
+  margin-bottom: 70px;
+  @media (max-width: $sm) {
+    font-size: 14px;
+  }
+  .feed-data-item:not(:first-child){
+    margin-top: 15px;
+  }
+}

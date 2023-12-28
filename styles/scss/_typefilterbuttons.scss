@@ -1,0 +1,11 @@
+@import "variables";
+.type-filter__select{
+  text-align: left;
+  padding-left: 3px;
+  border-radius: 6px;
+  border: 1px solid $darkRed;
+  width: 160px;
+  height: 33px;
+  font-size: 14px;
+  background: transparent;
+}

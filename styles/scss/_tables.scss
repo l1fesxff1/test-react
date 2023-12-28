@@ -1,0 +1,71 @@
+// based styles for tables
+.ckeditor-responsive-table{
+  overflow: auto;
+}
+table{
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-collapse: collapse;
+}
+table {
+  //table-layout: fixed;
+  display: table;
+  box-sizing: border-box;
+  text-indent: initial;
+  border-spacing: 2px;
+  border-color: gray;
+}
+table thead {
+  background: transparent;
+  border-radius: .5rem;
+}
+thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+table tbody tr {
+  border-bottom: 1px solid #43454a;
+}
+table tr {
+  color: #000000;
+  background-color: transparent;
+}
+table tbody td {
+  height: auto;
+  padding: 1rem 1rem;
+}
+td {
+  box-sizing: border-box;
+  text-align: left;
+}
+td {
+  display: table-cell;
+  vertical-align: inherit;
+}
+table th, table th {
+  color: #fff;
+}
+table th {
+  font-size: .875rem;
+  font-weight: 575;
+  background: #2a2a2d;
+}
+th {
+  position: relative;
+  box-sizing: border-box;
+  height: 3rem;
+  padding: 0.5rem 1rem;
+  text-align: left;
+  line-height: 1.25rem;
+}
+th {
+  display: table-cell;
+  vertical-align: inherit;
+}

@@ -1,0 +1,14 @@
+@import "mixins";
+@import "variables";
+.not-found{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding:50px 0;
+  &__title{
+    @include fontz(80px,75px,0.02em,capitalize,800,black);
+  }
+  &__description{
+    @include fontz(30px,35px,0.01em,capitalize,400,black);
+  }
+}
