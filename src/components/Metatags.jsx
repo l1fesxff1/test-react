@@ -31,7 +31,6 @@ function Metatags({type , data, viewUrl}){
                 {type !== "view" && type !== "content" && siteInfo && (
                     <title>{`${siteInfo.name} | ${siteInfo.slogan}`}</title>
                 )}
-                <meta property="og:title" content="Fusion Backpack You'll Regret Not Having" />
 
                 {ogImageUrl && <meta id="og-image" property="og:image" content={ogImageUrl} />}
                 {ogImageUrl && <meta id="og-image-url" property="og:image:url" content={ogImageUrl} />}
