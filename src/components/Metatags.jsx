@@ -1,7 +1,6 @@
-import {Helmet} from "react-helmet";
+import {Helmet, HelmetProvider} from "react-helmet-async";
 import useDrupalData from "../services/api.jsx";
 import PropTypes from "prop-types";
-import {useEffect} from "react";
 
 function Metatags({type , data, viewUrl}){
     const frontUrl = import.meta.env.VITE_FRONTEND_URL;
@@ -15,60 +14,54 @@ function Metatags({type , data, viewUrl}){
     const keywords = metatagBlock?.data?.attributes?.tags?.keywords;
     const viewTitle = data?.meta?.title;
 
-    // Функція для динамічного оновлення метатегів на клієнті
-    const updateClientMetaTags = () => {
-        Helmet.canUseDOM && Helmet.rewind();
-    };
-
-    useEffect(() => {
-        // Викликайте функцію для оновлення метатегів після завершення рендерингу
-        updateClientMetaTags();
-    }, [data]);
 
     return(
         <>
-            <Helmet>
-                {type === "view" && viewTitle && siteInfo && (
-                    <title>{`${viewTitle} | ${siteInfo.name}`}</title>
-                )}
+            <HelmetProvider>
+                <Helmet>
+                    {type === "view" && viewTitle && siteInfo && (
+                        <title>{`${viewTitle} | ${siteInfo.name}`}</title>
+                    )}
 
-                {type === "content" && metaTitle && siteInfo && (
-                    <title>{`${metaTitle} | ${siteInfo.name}`}</title>
-                )}
+                    {type === "content" && metaTitle && siteInfo && (
+                        <title>{`${metaTitle} | ${siteInfo.name}`}</title>
+                    )}
 
-                {siteInfo?.logo && (
-                    <link rel={"icon"} type={"image/png"} href={siteInfo?.logo}/>
-                )}
+                    {siteInfo?.logo && (
+                        <link rel={"icon"} type={"image/png"} href={siteInfo?.logo}/>
+                    )}
 
-                {type !== "view" && type !== "content" && siteInfo && (
-                    <title>{`${siteInfo.name} | ${siteInfo.slogan}`}</title>
-                )}
+                    {type !== "view" && type !== "content" && siteInfo && (
+                        <title>{`${siteInfo.name} | ${siteInfo.slogan}`}</title>
+                    )}
 
-                {ogImageUrl && <meta id="og-image" property="og:image" content={ogImageUrl} />}
-                {ogImageUrl && <meta id="og-image-url" property="og:image:url" content={ogImageUrl} />}
-                {ogImageUrl && <meta property="og:image:width" content="600" />}
-                {ogImageUrl && <meta property="og:image:height" content="400" />}
+                    {ogImageUrl && <meta id="og-image" property="og:image" content={ogImageUrl} />}
+                    {ogImageUrl && <meta id="og-image-url" property="og:image:url" content={ogImageUrl} />}
+                    {ogImageUrl && <meta property="og:image:width" content="600" />}
+                    {ogImageUrl && <meta property="og:image:height" content="400" />}
 
-                {description && type === "content" && <meta name="description" content={description} />}
+                    {description && type === "content" && <meta name="description" content={description} />}
 
-                {type === "front" && frontUrl && (
-                    <link rel="shortlink" href={frontUrl}/>
-                )}
-                {type === "front" && frontUrl && keywords && (
-                    <meta name="keywords" content={keywords}/>
-                )}
+                    {type === "front" && frontUrl && (
+                        <link rel="shortlink" href={frontUrl}/>
+                    )}
+                    {type === "front" && frontUrl && keywords && (
+                        <meta name="keywords" content={keywords}/>
+                    )}
 
-                {type === "content" && (
-                    <link rel="canonical" href={nodeUrl} />
-                )}
-                {frontUrl && type === "front" && (
-                    <link rel="canonical" href={frontUrl} />
-                )}
-                {frontUrl && type === "view" && viewUrl && (
-                    <link rel="canonical" href={`${frontUrl}${viewUrl}`} />
-                )}
+                    {type === "content" && (
+                        <link rel="canonical" href={nodeUrl} />
+                    )}
+                    {frontUrl && type === "front" && (
+                        <link rel="canonical" href={frontUrl} />
+                    )}
+                    {frontUrl && type === "view" && viewUrl && (
+                        <link rel="canonical" href={`${frontUrl}${viewUrl}`} />
+                    )}
 
-            </Helmet>
+                </Helmet>
+            </HelmetProvider>
+
         </>
     );
 }
