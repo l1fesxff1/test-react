@@ -1,6 +1,8 @@
 // Import necessary components and hooks from react-router-dom.
 import {Route, Routes, Navigate, useLocation, useNavigate} from "react-router-dom";
 import { useState } from 'react'
+import prerender from "prerender";
+
 import Home from "./pages/Home.jsx";
 
 // Import page components for News and Events.
@@ -43,6 +45,7 @@ import TopHeaderMenu from "./components/TopHeaderMenu.jsx";
 import UkraineAboveAll from "./pages/UkraineAboveAll.jsx";
 import UniversityRating from "./pages/UniversityRating.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import * as fs from "fs";
 
 // Define the main App component.
 function App() {
@@ -187,8 +190,17 @@ function App() {
             />
             <Footer />
         </>
+
     )
 }
-
+// eslint-disable-next-line no-undef
+const test = require(prerender);
+test.renderToString(
+    <App />,
+    (html) => {
+        // Збережіть html-код у файлі
+        fs.writeFileSync("index.html", html);
+    }
+);
 // Export the App component for use in other parts of the application.
 export default App
