@@ -1,6 +1,7 @@
 import {Helmet} from "react-helmet";
 import useDrupalData from "../services/api.jsx";
 import PropTypes from "prop-types";
+import {useEffect} from "react";
 
 function Metatags({type , data, viewUrl}){
     const frontUrl = import.meta.env.VITE_FRONTEND_URL;
@@ -13,6 +14,17 @@ function Metatags({type , data, viewUrl}){
     const nodeUrl = `${backUrl}${data?.path?.[0]?.langcode}${data?.path?.[0]?.alias}`;
     const keywords = metatagBlock?.data?.attributes?.tags?.keywords;
     const viewTitle = data?.meta?.title;
+
+    // Функція для динамічного оновлення метатегів на клієнті
+    const updateClientMetaTags = () => {
+        Helmet.canUseDOM && Helmet.rewind();
+    };
+
+    useEffect(() => {
+        // Викликайте функцію для оновлення метатегів після завершення рендерингу
+        updateClientMetaTags();
+    }, [data]);
+
     return(
         <>
             <Helmet>
