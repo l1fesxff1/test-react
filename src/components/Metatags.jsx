@@ -31,6 +31,7 @@ function Metatags({type , data, viewUrl}){
                 {type !== "view" && type !== "content" && siteInfo && (
                     <title>{`${siteInfo.name} | ${siteInfo.slogan}`}</title>
                 )}
+                <meta id="og-title" property="og:title">test</meta>
                 {ogImageUrl && <meta id="og-image" property="og:image" content={ogImageUrl} />}
                 {ogImageUrl && <meta id="og-image-url" property="og:image:url" content={ogImageUrl} />}
                 {ogImageUrl && <meta property="og:image:width" content="600" />}
