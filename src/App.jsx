@@ -1,7 +1,7 @@
 // Import necessary components and hooks from react-router-dom.
 import {Route, Routes, Navigate, useLocation, useNavigate} from "react-router-dom";
 import { useState } from 'react'
-import prerender from "prerender";
+// import prerender from "prerender";
 
 import Home from "./pages/Home.jsx";
 
@@ -45,7 +45,7 @@ import TopHeaderMenu from "./components/TopHeaderMenu.jsx";
 import UkraineAboveAll from "./pages/UkraineAboveAll.jsx";
 import UniversityRating from "./pages/UniversityRating.jsx";
 import NotFound from "./pages/NotFound.jsx";
-import * as fs from "fs";
+// import * as fs from "fs";
 
 // Define the main App component.
 function App() {
