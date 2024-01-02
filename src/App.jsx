@@ -194,13 +194,13 @@ function App() {
     )
 }
 // eslint-disable-next-line no-undef
-const test = require(prerender);
-test.renderToString(
-    <App />,
-    (html) => {
-        // Збережіть html-код у файлі
-        fs.writeFileSync("index.html", html);
-    }
-);
+// const prerender = require('prerender');
+// prerender.renderToString(
+//     <App />,
+//     (html) => {
+//         Збережіть html-код у файлі
+        // fs.writeFileSync("index.html", html);
+    // }
+// );
 // Export the App component for use in other parts of the application.
 export default App

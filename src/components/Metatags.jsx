@@ -1,6 +1,7 @@
 import {Helmet, HelmetProvider} from "react-helmet-async";
 import useDrupalData from "../services/api.jsx";
 import PropTypes from "prop-types";
+import img from "/src/assets/wikisnu-new.png"
 
 function Metatags({type , data, viewUrl}){
     const frontUrl = import.meta.env.VITE_FRONTEND_URL;
@@ -35,7 +36,8 @@ function Metatags({type , data, viewUrl}){
                         <title>{`${siteInfo.name} | ${siteInfo.slogan}`}</title>
                     )}
 
-                    {ogImageUrl && <meta id="og-image" property="og:image" content={ogImageUrl} />}
+                    <meta id="og-image" property="og:image" content={img} />
+                    <meta id="og-title" property="og:title" content={"ВНУ"} />
                     {ogImageUrl && <meta id="og-image-url" property="og:image:url" content={ogImageUrl} />}
                     {ogImageUrl && <meta property="og:image:width" content="600" />}
                     {ogImageUrl && <meta property="og:image:height" content="400" />}
