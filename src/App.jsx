@@ -45,7 +45,6 @@ import TopHeaderMenu from "./components/TopHeaderMenu.jsx";
 import UkraineAboveAll from "./pages/UkraineAboveAll.jsx";
 import UniversityRating from "./pages/UniversityRating.jsx";
 import NotFound from "./pages/NotFound.jsx";
-// import * as fs from "fs";
 
 // Define the main App component.
 function App() {
